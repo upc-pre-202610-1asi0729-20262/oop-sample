@@ -2,6 +2,16 @@ package com.acme.oop.shared.domain.model.valueobjects;
 
 import java.util.Objects;
 
+/**
+ * Represents a physical address.
+ * This value object is immutable and shared across the bounded contexts.
+ * @param street        the address street, it must not be null or blank
+ * @param city          the address city, it must not be null or blank.
+ * @param postalCode    the address postal code, it must not be null or blank.
+ * @param country       the address country, it must not be null or blank.
+ *
+ * @author Open Source Application Development Team
+ */
 public record Address(String street, String city, String postalCode, String country) {
     public Address {
         if (street == null || street.isBlank()) throw new IllegalArgumentException("Street cannot be null or blank");
