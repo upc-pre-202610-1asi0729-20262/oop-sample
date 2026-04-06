@@ -1,17 +1,17 @@
 package com.acme.oop;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import com.acme.oop.crm.domain.model.aggregates.Customer;
+import com.acme.oop.shared.domain.model.valueobjects.Address;
+
 public class Main {
     static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+        // Shared context
+        Address address = new Address("123 Main St", "Springfield", "IL", "62701");
+        System.out.println("First Address: " + address);
+        Address anotherAddress = new Address("456 Elm St", "Springfield", "IL", "62701");
+        System.out.println("Second Address: " + anotherAddress);
+        System.out.println("Creating a customer");
+        Customer customer = new Customer("John Doe", "john.doe@gmail.com", address);
+        System.out.println("Customer Contact Info: " + customer.getContactInfo());
     }
 }
