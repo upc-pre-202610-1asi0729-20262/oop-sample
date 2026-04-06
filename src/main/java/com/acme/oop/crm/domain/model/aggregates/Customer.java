@@ -1,6 +1,7 @@
 package com.acme.oop.crm.domain.model.aggregates;
 
 import com.acme.oop.shared.domain.model.valueobjects.Address;
+import com.acme.oop.shared.domain.model.valueobjects.CustomerId;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
@@ -12,14 +13,14 @@ import lombok.Setter;
  */
 @Getter
 public class Customer {
-    // TODO: Add CustomerId id;
+    private final CustomerId id;
     @Setter @NonNull private String name;
     @Setter @NonNull private String email;
     @Setter @NonNull private Address address;
 
 
     /**
-     * Creates a new Customer aggregate with the given name, email, and address.
+     * Creates a new Customer aggregate with the given name, email, and address. It also generates a new CustomerId.
      * @param name      the name of the customer, it must not be null or blank.
      * @param email     the email of the customer, it must not be null or blank and should be a valid email format.
      * @param address   the address of the customer, it must not be null.
@@ -28,6 +29,7 @@ public class Customer {
         this.name = name;
         this.email = email;
         this.address = address;
+        id = new CustomerId();
     }
 
     /**
